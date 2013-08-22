@@ -21,12 +21,6 @@
 lib_dir = 'lib'
 default['php']['install_method'] = 'package'
 default['php']['directives'] = {}
-default['php']['repository']['uri'] = 'http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu/'
-default['php']['repository']['deb_src'] = true
-default['php']['repository']['distribution'] = 'precise'
-default['php']['repository']['components'] = ['main']
-default['php']['repository']['keyserver'] = 'keyserver.ubuntu.com'
-default['php']['repository']['key'] = 'E5267A6C'
 
 case node["platform_family"]
 when "rhel", "fedora"
@@ -52,7 +46,7 @@ when "suse"
   default['php']['ext_conf_dir']  = '/etc/php5/conf.d'
   default['php']['fpm_user']      = 'wwwrun'
   default['php']['fpm_group']     = 'www'
-  default['php']['packages']      = ['php5-pear']
+  default['php']['packages']      = ['apache2-mod_php5', 'php5-pear']
   lib_dir = node['kernel']['machine'] =~ /x86_64/ ? 'lib64' : 'lib'
 else
   default['php']['conf_dir']      = '/etc/php5/cli'
@@ -104,4 +98,3 @@ default['php']['configure_options'] = %W{--prefix=#{php['prefix_dir']}
                                           --with-sqlite3
                                           --with-pdo-mysql
                                           --with-pdo-sqlite}
-default['php']['generic_modules'] = ({})
