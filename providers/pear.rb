@@ -255,7 +255,7 @@ def pecl?
     else
       # fall back and search as a pecl
       search_cmd = "pecl -d preferred_state=#{can_haz(@new_resource, "preferred_state")} search#{expand_channel(can_haz(@new_resource, "channel"))} #{@new_resource.package_name}"
-      unless grep_for_version(shell_out(search_cmd).stdout, @new_resource.package_name).nil?        
+      unless grep_for_version(shell_out(search_cmd).stdout, @new_resource.package_name).nil?
         true
       else
         raise "Package #{@new_resource.package_name} not found in either PEAR or PECL."
@@ -268,8 +268,4 @@ end
 # this allows PhpPear to work with Chef::Resource::Package
 def can_haz(resource, attribute_name)
   resource.respond_to?(attribute_name) ? resource.send(attribute_name) : nil
-end
-
-def haz_ver(resource, version)
-  resource.respond_to?(version) ? resource.send(version) : '\d+\.\d+\.\d+'
 end
