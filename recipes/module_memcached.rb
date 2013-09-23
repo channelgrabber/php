@@ -1,12 +1,5 @@
-php_pear_channel 'pear.php.net' do
-  action :update
-end
-php_pear_channel 'pecl.php.net' do
-  action :update
-end
+pkg = "php5-memcached"
 
-# Install gearman pecl package
-php_pear "memcached" do
-  version node['php']['memcached']['version']
+package pkg do
   action :install
 end
