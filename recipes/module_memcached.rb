@@ -9,5 +9,4 @@ end
 php_pear "memcached" do
   version node['php']['memcached']['version']
   action :install
-  not_if "php --info | grep -qs 'gearman support => enabled'"
 end
