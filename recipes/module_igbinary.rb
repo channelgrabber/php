@@ -3,11 +3,11 @@ php_pear "igbinary" do
 end
 
 script "configure_igbinary" do
-  only_if {File.exists?('/etc/php5/conf.d/igbinary.ini')}
+  only_if {!File.exists?('/etc/php5/conf.d/igbinary.ini')}
   interpreter "bash"
   user "root"
   code <<-EOH
-  echo -e "session.serialize_handler=igbinary
-  igbinary.compact_strings=On" >> /etc/php5/conf.d/igbinary.ini
+echo -e "session.serialize_handler=igbinary
+igbinary.compact_strings=On" >> /etc/php5/conf.d/igbinary.ini
   EOH
 end
