@@ -3,7 +3,7 @@ php_pear "igbinary" do
 end
 
 script "configure_igbinary" do
-  if {File.exists?('/etc/php5/conf.d/igbinary.ini')}
+  only_if {File.exists?('/etc/php5/conf.d/igbinary.ini')}
   interpreter "bash"
   user "root"
   code <<-EOH
