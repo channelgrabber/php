@@ -7,7 +7,7 @@ script "configure_igbinary" do
   interpreter "bash"
   user "root"
   code <<-EOH
-    echo -e "session.serialize_handler=igbinary
-    igbinary.compact_strings=On" >> /etc/php5/conf.d/mongo.ini
+  echo -e "session.serialize_handler=igbinary
+  igbinary.compact_strings=On" >> /etc/php5/conf.d/mongo.ini
   EOH
 end
