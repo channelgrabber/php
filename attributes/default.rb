@@ -31,7 +31,7 @@ when "debian"
   default['php']['repository']['components'] = ['all']
   default['php']['repository']['key'] = 'http://www.dotdeb.org/dotdeb.gpg'
 when "ubuntu"
-  default['php']['repository']['uri'] = 'http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu/'
+  default['php']['repository']['uri'] = 'http://ppa.launchpad.net/channelgrabber/ppa/ubuntu/'
   default['php']['repository']['deb_src'] = true
   default['php']['repository']['distribution'] = 'precise'
   default['php']['repository']['components'] = ['main']
