@@ -31,16 +31,17 @@ when "debian"
   default['php']['repository']['components'] = ['all']
   default['php']['repository']['key'] = 'http://www.dotdeb.org/dotdeb.gpg'
 when "ubuntu"
-  default['php']['repository']['uri'] = 'http://ppa.launchpad.net/channelgrabber/ppa/ubuntu/'
+  default['php']['repository']['uri'] = 'http://ppa.launchpad.net/channelgrabber/php5/ubuntu/'
   default['php']['repository']['deb_src'] = true
   default['php']['repository']['distribution'] = 'precise'
   default['php']['repository']['components'] = ['main']
   default['php']['repository']['keyserver'] = 'keyserver.ubuntu.com'
-  default['php']['repository']['key'] = 'E5267A6C'
+  default['php']['repository']['key'] = '04C01184'
 end
 
 default['php']['options']['display_errors'] = 'off'
 default['php']['options']['error_reporting'] = 'E_ALL & ~E_NOTICE'
+default['php']['options']['date_timezone'] = 'Europe/London'
 
 case node["platform_family"]
 when "rhel", "fedora"

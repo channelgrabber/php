@@ -30,6 +30,7 @@ template "#{node['php']['conf_dir']}/php.ini" do
   mode "0644"
   variables(
     :error_reporting => node['php']['options']['error_reporting'],
-    :display_errors => node['php']['options']['display_errors']
+    :display_errors => node['php']['options']['display_errors'],
+    :date_timezone => node['php']['options']['date_timezone']
   )
 end
