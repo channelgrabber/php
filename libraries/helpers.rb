@@ -23,6 +23,7 @@ def el5_range
 end
 
 def enable_pear_mod (module_name)
+  if (File.exists('/etc/php5/conf.d/#{module_name}.ini'))
   bash "enable_pear_mod" do
     user "root"
     cwd '/etc/php5/conf.d'
