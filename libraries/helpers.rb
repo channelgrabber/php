@@ -30,6 +30,6 @@ def enable_pear_mod (module_name)
       ln -s /etc/php5/conf.d/#{module_name}.ini /etc/php5/mods-available
       php5enmod #{module_name}
     EOH
-    only_if {File.exists?('/etc/php5/conf.d/#{module_name}.ini')}
+    only_if {File.exists?("/etc/php5/conf.d/#{module_name}.ini")}
   end
 end
