@@ -23,7 +23,7 @@ def el5_range
 end
 
 def enable_pear_mod (module_name)
-  bash do
+  bash "enable_pear_mod" do
     user "root"
     cwd '/etc/php5/conf.d'
     code <<-EOH
