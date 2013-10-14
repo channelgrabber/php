@@ -23,5 +23,7 @@ node['php']['generic_modules'].each do |php_module, settings|
             zend_extensions settings['zend_extensions'] || []
             options settings['options'] || ''
         end
+
+        enable_pear_mod (php_module)
     end
 end
