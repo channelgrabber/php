@@ -25,7 +25,7 @@ end
 def enable_pear_mod (module_name)
   bash "enable_pear_mod" do
     user "root"
-    cwd '/etc/php5/conf.d'
+    cwd "/etc/php5/conf.d"
     code <<-EOH
       ln -s /etc/php5/conf.d/#{module_name}.ini /etc/php5/mods-available
       php5enmod #{module_name}
