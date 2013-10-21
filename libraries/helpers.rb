@@ -23,6 +23,12 @@ def el5_range
 end
 
 def enable_pear_mod (module_name)
+  directory node['php']['ext_conf_dir'] do
+    owner 'root'
+    group 'root'
+    action :create
+  end
+
   bash "enable_pear_mod" do
     user "root"
     cwd "/etc/php5/conf.d"
