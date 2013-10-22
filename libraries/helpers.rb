@@ -23,13 +23,15 @@ def el5_range
 end
 
 def enable_pear_mod (module_name)
+  config_file = File.join(node['php']['ext_conf_dir'], "#{module_name}.ini")
+
   bash "enable_pear_mod" do
     user "root"
-    cwd "/etc/php5/conf.d"
+    cwd node['php']['ext_conf_dir']
     code <<-EOH
-      ln -s /etc/php5/conf.d/#{module_name}.ini /etc/php5/mods-available
+      ln -s #{config_file} /etc/php5/mods-available
       php5enmod #{module_name}
     EOH
-    only_if {File.exists?("/etc/php5/conf.d/#{module_name}.ini")}
+    only_if {File.exists?(config_file)}
   end
 end
