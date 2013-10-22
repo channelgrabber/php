@@ -32,6 +32,6 @@ def enable_pear_mod (module_name)
       ln -s #{config_file} /etc/php5/mods-available
       php5enmod #{module_name}
     EOH
-    only_if {File.exists?("#{config_file}")}
+    only_if {File.exists?(config_file)}
   end
 end
