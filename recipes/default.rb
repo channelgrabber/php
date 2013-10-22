@@ -29,3 +29,10 @@ end
 php_pear_channel 'pecl.php.net' do
   action :update
 end
+
+# prepare directory to install pear module inis
+directory node['php']['ext_conf_dir'] do
+  owner 'root'
+  group 'root'
+  action :create
+end
