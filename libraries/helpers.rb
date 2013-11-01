@@ -23,8 +23,9 @@ def el5_range
 end
 
 def enable_pear_mod (module_name)
+  Chef::Log.error "******************** inside enable pear mod"
   config_file = File.join(node['php']['ext_conf_dir'], "#{module_name}.ini")
-
+  Chef::Log.error "******************** config_file:" + config_file.inspect
   bash "enable_pear_mod" do
     user "root"
     cwd node['php']['ext_conf_dir']
@@ -35,4 +36,5 @@ def enable_pear_mod (module_name)
     only_if {File.exists?(config_file)}
     Chef::Log.error "******************************************** configExists?" + File.exists?(config_file).inspect
   end
+  Chef::Log.error "******************** end of enable pear mod"
 end
