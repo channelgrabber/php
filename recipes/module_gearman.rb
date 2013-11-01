@@ -1,5 +1,7 @@
 pear_module = "gearman"
 
+Chef::Log.error "******************** inside module_gearman"
+
 include_recipe "gearman::server-source"
 include_recipe "gearman::php"
 
