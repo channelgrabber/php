@@ -33,5 +33,6 @@ def enable_pear_mod (module_name)
       php5enmod #{module_name}
     EOH
     only_if {File.exists?(config_file)}
+    Chef::Log.error "******************************************** configExists?" + File.exists?(config_file).inspect
   end
 end
