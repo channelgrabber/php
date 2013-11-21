@@ -17,6 +17,6 @@ end
 package pkg do
   action :install
   notifies :restart, "service[php-fpm]", :delayed
-  notifies :run, "execute[configure_xdebug]"
+  #notifies :run, "execute[configure_xdebug]"
 end
 
