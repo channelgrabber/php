@@ -1,5 +1,13 @@
 pkg = "php5-xdebug"
 
+
+
+package pkg do
+  action :install
+  notifies :restart, "service[php-fpm]", :delayed
+  #notifies :run, "execute[configure_xdebug]"
+end
+
 bash "configure_xdebug" do
   user "root"
   cwd "/etc/php5/mods-available"
@@ -11,12 +19,5 @@ bash "configure_xdebug" do
     xdebug.profiler_enable=1
     xdebug.profiler_enable_trigger=1' >> xdebug.ini
   EOH
-  action :nothing
+  action :run
 end
-
-package pkg do
-  action :install
-  notifies :restart, "service[php-fpm]", :delayed
-  #notifies :run, "execute[configure_xdebug]"
-end
-
