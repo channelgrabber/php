@@ -11,7 +11,7 @@ bash "configure_xdebug" do
     xdebug.profiler_enable=1
     xdebug.profiler_enable_trigger=1' >> xdebug.ini
   EOH
-  action :run
+  action :nothing
 end
 
 package pkg do
