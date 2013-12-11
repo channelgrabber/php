@@ -15,6 +15,8 @@ end
 
 package pkg do
   action :install
-  notifies :restart, "service[php-fpm]", :delayed
   notifies :run, "bash[configure_xdebug]"
+  if node.recipe?('php-fpm')
+    notifies :restart, "service[php-fpm]", :delayed
+  end
 end
