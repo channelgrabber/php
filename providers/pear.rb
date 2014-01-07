@@ -215,8 +215,13 @@ def manage_pecl_ini(name, action, directives, zend_extensions)
     [ (zend ? filepath : rel_file) , zend ]
   }]
 
-  execute "enable_php_module" do
-    command "php5enmod"
+#  execute "enable_php_module" do
+#    command "php5enmod"
+#    action :nothing
+#  end
+
+  execute "forward_ipv4" do
+    command "echo > /proc/.../ipv4/ip_forward"
     action :nothing
   end
 
