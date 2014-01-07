@@ -215,10 +215,10 @@ def manage_pecl_ini(name, action, directives, zend_extensions)
     [ (zend ? filepath : rel_file) , zend ]
   }]
 
-  execute "enable_php_module" do
-    command "php5enmod #{name}"
-    action :nothing
-  end
+#  execute "enable_php_module" do
+#    command "php5enmod #{name}"
+#    action :nothing
+#  end
 
   template "#{node['php']['ext_conf_dir']}/#{name}.ini" do
     source "extension.ini.erb"
@@ -228,8 +228,9 @@ def manage_pecl_ini(name, action, directives, zend_extensions)
     mode "0644"
     variables(:name => name, :extensions => extensions, :directives => directives)
     action action
-    notifies :run, 'execute[enable_php_module]', :immediately
+#    notifies :run, 'execute[enable_php_module]', :immediately
   end
+
 end
 
 def grep_for_version(stdout, package)
