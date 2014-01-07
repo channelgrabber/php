@@ -147,7 +147,7 @@ def install_package(name, version)
   command << "-#{version}" if version and !version.empty?
   pear_shell_out(command)
   manage_pecl_ini(name, :create, can_haz(@new_resource, "directives"), can_haz(@new_resource, "zend_extensions")) if pecl?
-  PHP.enable_php_module(name)
+  enable_php_module(name)
 end
 
 def upgrade_package(name, version)
@@ -160,7 +160,7 @@ def remove_package(name, version)
   command << "-#{version}" if version and !version.empty?
   pear_shell_out(command)
   manage_pecl_ini(name, :delete) if pecl?
-  PHP.disable_php_module(name)
+  disable_php_module(name)
 end
 
 def pear_shell_out(command)
