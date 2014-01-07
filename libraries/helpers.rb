@@ -22,16 +22,14 @@ def el5_range
   (0..99).to_a.map{|i| "5.#{i}"}
 end
 
-class Chef::Recipe::PHP
-  def self.enable_php_module(name)
-    execute "enable_php_module" do
-      command "php5enmod #{name}"
-    end
+def enable_php_module(name)
+  execute "enable_php_module" do
+    command "php5enmod #{name}"
   end
+end
 
-  def self.disable_php_module(name)
-    execute "disable_php_module" do
-      command "php5dismod #{name}"
-    end
+def disable_php_module(name)
+  execute "disable_php_module" do
+    command "php5dismod #{name}"
   end
 end
