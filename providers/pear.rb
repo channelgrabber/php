@@ -215,16 +215,6 @@ def manage_pecl_ini(name, action, directives, zend_extensions)
     [ (zend ? filepath : rel_file) , zend ]
   }]
 
-#  execute "enable_php_module" do
-#    command "php5enmod"
-#    action :nothing
-#  end
-
-  execute "forward_ipv4" do
-    command "echo > /proc/.../ipv4/ip_forward"
-    action :nothing
-  end
-
   template "#{node['php']['ext_conf_dir']}/#{name}.ini" do
     source "extension.ini.erb"
     cookbook "php"
@@ -234,6 +224,11 @@ def manage_pecl_ini(name, action, directives, zend_extensions)
     variables(:name => name, :extensions => extensions, :directives => directives)
     action action
 #    notifies :run, 'execute[enable_php_module]', :immediately
+  end
+
+  execute "enable_php_module" do
+    command "php5enmod #{name}"
+    action :run
   end
 
 end
