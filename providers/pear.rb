@@ -147,6 +147,7 @@ def install_package(name, version)
   command << "-#{version}" if version and !version.empty?
   pear_shell_out(command)
   manage_pecl_ini(name, :create, can_haz(@new_resource, "directives"), can_haz(@new_resource, "zend_extensions")) if pecl?
+  enable_php_module(name)
 end
 
 def upgrade_package(name, version)
@@ -159,6 +160,19 @@ def remove_package(name, version)
   command << "-#{version}" if version and !version.empty?
   pear_shell_out(command)
   manage_pecl_ini(name, :delete) if pecl?
+  disable_php_module(name)
+end
+
+def enable_php_module(name)
+  execute "enable_php_module" do
+    command "php5enmod #{name}"
+  end
+end
+
+def disable_php_module(name)
+  execute "disable_php_module" do
+    command "php5dismod #{name}"
+  end
 end
 
 def pear_shell_out(command)
@@ -223,10 +237,6 @@ def manage_pecl_ini(name, action, directives, zend_extensions)
     mode "0644"
     variables(:name => name, :extensions => extensions, :directives => directives)
     action action
-  end
-
-  execute "enable_php_module" do
-    command "php5enmod #{name}"
   end
 end
 
