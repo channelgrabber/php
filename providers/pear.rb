@@ -216,7 +216,7 @@ def manage_pecl_ini(name, action, directives, zend_extensions)
   }]
 
   execute "enable_php_module" do
-    command "php5enmod #{name}"
+    command "php5enmod"
     action :nothing
   end
 
