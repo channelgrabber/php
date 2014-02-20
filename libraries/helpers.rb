@@ -30,11 +30,10 @@ def enable_pear_mod (module_name)
     cwd node['php']['ext_conf_dir']
     code <<-EOH
       ln -s #{config_file} /etc/php5/mods-available
+      php5enmod #{module_name}
     EOH
     only_if {File.exists?(config_file)}
   end
-
-  enable_mod(module_name)
 end
 
 def enable_mod (module_name)
@@ -47,7 +46,6 @@ def enable_mod (module_name)
 end
 
 def disable_mod (module_name)
-  log "" + node['asdf']['asdfdsfffff'].inspect
   bash "disable_mod" do
     user "root"
     code <<-EOH
