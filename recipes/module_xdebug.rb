@@ -1,4 +1,4 @@
-extension_name = "xdebug"
+module_name = "xdebug"
 pkg = "php5-xdebug"
 
 bash "configure_xdebug" do
@@ -28,6 +28,8 @@ if ((!node['php']['modules']['xdebug']['enabled'].nil?) rescue false) # TODO che
   log "**** Attribute is not nil"
   if (!node['php']['modules']['xdebug']['enabled'])
     log "**** Attribute is disabled. Disabling..."
-    disable_mod (extension_name)
+    disable_mod (module_name)
+  else
+    enable_mod (module_name)
   end
 end
