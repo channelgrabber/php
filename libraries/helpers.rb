@@ -35,3 +35,31 @@ def enable_pear_mod (module_name)
     only_if {File.exists?(config_file)}
   end
 end
+
+def enable_mod (module_name)
+  bash "enable_mod" do
+    user "root"
+    code <<-EOH
+      php5enmod #{module_name}
+    EOH
+  end
+end
+
+def disable_mod (module_name)
+  bash "disable_mod" do
+    user "root"
+    code <<-EOH
+      php5dismod #{module_name}
+    EOH
+  end
+end
+
+def set_mod_state (module_name)
+  if (recursive_has_key?(['modules', module_name, 'enabled'], node['php']))
+    if (node['php']['modules'][module_name]['enabled'])
+      enable_mod(module_name)
+    else
+      disable_mod(module_name)
+    end
+  end
+end

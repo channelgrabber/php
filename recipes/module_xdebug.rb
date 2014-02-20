@@ -1,3 +1,4 @@
+module_name = "xdebug"
 pkg = "php5-xdebug"
 
 bash "configure_xdebug" do
@@ -20,3 +21,5 @@ package pkg do
     notifies :restart, "service[php-fpm]", :delayed
   end
 end
+
+set_mod_state(module_name)
