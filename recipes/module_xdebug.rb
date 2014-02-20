@@ -24,10 +24,10 @@ end
 
 log "**** About to start enabled check"
 
-if (!node['php']['modules']['xdebug']['enabled'].nil?) rescue false
+if ((!node['php']['modules']['xdebug']['enabled'].nil?) rescue false) # TODO check if this eats all errors (like in disable_mod)
   log "**** Attribute is not nil"
-  if !node['php']['modules']['xdebug']['enabled']
-    log "**** Attribute is 'disabled'"
+  if (!node['php']['modules']['xdebug']['enabled'])
+    log "**** Attribute is disabled. Disabling..."
     disable_mod (extension_name)
   end
 end
