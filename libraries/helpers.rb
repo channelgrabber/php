@@ -37,6 +37,7 @@ def enable_pear_mod (module_name)
 end
 
 def enable_mod (module_name)
+  log "test rescue false scope : " + node['php']['trtrtqttqttrtrttq'].inspect
   bash "enable_mod" do
     user "root"
     code <<-EOH
