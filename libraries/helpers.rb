@@ -53,3 +53,13 @@ def disable_mod (module_name)
     EOH
   end
 end
+
+def set_mod_state (module_name)
+  if (recursive_has_key?(['modules', module_name, 'enabled'], node['php']))
+    if (node['php']['modules'][module_name]['enabled'])
+      enable_mod(module_name)
+    else
+      disable_mod(module_name)
+    end
+  end
+end

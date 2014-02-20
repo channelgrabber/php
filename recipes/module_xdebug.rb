@@ -22,14 +22,4 @@ package pkg do
   end
 end
 
-log "**** About to start recursive check"
-if (recursive_has_key?(['modules', 'xdebug', 'enabled'], node['php']))
-  log "**** Attribute is not nil"
-  if (!node['php']['modules']['xdebug']['enabled'])
-    log "**** Attribute is disabled. Disabling..."
-    disable_mod(module_name)
-  else
-    log "**** Attribute is enabled. Enabled..."
-    enable_mod(module_name)
-  end
-end
+set_mod_state(module_name)
