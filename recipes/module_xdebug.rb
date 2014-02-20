@@ -24,7 +24,7 @@ end
 
 log "**** About to start enabled check"
 
-if ((!node['php']['modules']['xdebug']['enabled'].nil?) rescue false) # TODO check if this eats all errors (like in disable_mod)
+if (!node['php']['modules']['xdebug']['enabled'].nil?)
   log "**** Attribute is not nil"
   if (!node['php']['modules']['xdebug']['enabled'])
     log "**** Attribute is disabled. Disabling..."
