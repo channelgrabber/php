@@ -1,3 +1,4 @@
+extension_name = "xdebug"
 pkg = "php5-xdebug"
 
 bash "configure_xdebug" do
@@ -18,5 +19,15 @@ package pkg do
   notifies :run, "bash[configure_xdebug]"
   if node.recipe?('php-fpm')
     notifies :restart, "service[php-fpm]", :delayed
+  end
+end
+
+log "**** About to start enabled check"
+
+if (!node['php']['modules']['xdebug']['enabled'].nil?) rescue false
+  log "**** Attribute is not nil"
+  if !node['php']['modules']['xdebug']['enabled']
+    log "**** Attribute is 'disabled'"
+    disable_mod (extension_name)
   end
 end
