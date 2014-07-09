@@ -33,7 +33,7 @@ when "debian"
 when "ubuntu"
   default['php']['repository']['uri'] = 'http://ppa.launchpad.net/channelgrabber/php5/ubuntu/'
   default['php']['repository']['deb_src'] = true
-  default['php']['repository']['distribution'] = 'precise'
+  default['php']['repository']['distribution'] = 'trusty'
   default['php']['repository']['components'] = ['main']
   default['php']['repository']['keyserver'] = 'keyserver.ubuntu.com'
   default['php']['repository']['key'] = '04C01184'
