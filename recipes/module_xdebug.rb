@@ -14,7 +14,7 @@ pkg = "php5-xdebug"
 #   action :nothing
 # end
 
-apt pkg do
+apt_package pkg do
   action :install
 #   notifies :run, "bash[configure_xdebug]"
   if node.recipe?('php-fpm')
