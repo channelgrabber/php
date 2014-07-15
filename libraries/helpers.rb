@@ -35,21 +35,3 @@ def enable_pear_mod (module_name)
     only_if {File.exists?(config_file)}
   end
 end
-
-def enable_mod (module_name)
-  bash "enable_mod" do
-    user "root"
-    code <<-EOH
-      php5enmod #{module_name}
-    EOH
-  end
-end
-
-def disable_mod (module_name)
-  bash "disable_mod" do
-    user "root"
-    code <<-EOH
-      php5dismod #{module_name}
-    EOH
-  end
-end

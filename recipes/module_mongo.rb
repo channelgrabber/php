@@ -5,4 +5,3 @@ php_pear pear_module do
 end
 
 enable_pear_mod (pear_module)
-
