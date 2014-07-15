@@ -14,8 +14,6 @@ xdebug.profiler_enable_trigger=1' >> xdebug.ini
   action :nothing
 end
 
-Chef::Log.error "********************* installing xdebug package with config"
-
 package pkg do
   action :install
   notifies :run, "bash[configure_xdebug]"
