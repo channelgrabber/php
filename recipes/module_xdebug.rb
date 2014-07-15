@@ -14,6 +14,8 @@ pkg = "php5-xdebug"
 #   action :nothing
 # end
 
+Chef::Log.error "********************* installing xdebug package"
+
 package pkg do
   action :install
 #   notifies :run, "bash[configure_xdebug]"
