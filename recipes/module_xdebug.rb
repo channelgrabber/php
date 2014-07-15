@@ -21,5 +21,3 @@ package pkg do
     notifies :restart, "service[php-fpm]", :delayed
   end
 end
-
-set_mod_state(module_name)
