@@ -19,6 +19,7 @@
 # limitations under the License.
 #
 
+Chef::Log.error "******************* " + "php::#{node['php']['install_method']}"
 include_recipe "php::#{node['php']['install_method']}"
 
 # update the main channels
