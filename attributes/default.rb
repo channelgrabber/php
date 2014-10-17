@@ -31,12 +31,12 @@ when "debian"
   default['php']['repository']['components'] = ['all']
   default['php']['repository']['key'] = 'http://www.dotdeb.org/dotdeb.gpg'
 when "ubuntu"
-  default['php']['repository']['uri'] = 'http://ppa.launchpad.net/channelgrabber/php5/ubuntu/'
+  default['php']['repository']['uri'] = 'http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu'
   default['php']['repository']['deb_src'] = true
   default['php']['repository']['distribution'] = `lsb_release -cs`.strip
   default['php']['repository']['components'] = ['main']
   default['php']['repository']['keyserver'] = 'keyserver.ubuntu.com'
-  default['php']['repository']['key'] = '04C01184'
+  default['php']['repository']['key'] = 'E5267A6C'
 end
 
 default['php']['options']['display_errors'] = 'off'
