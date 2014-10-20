@@ -7,7 +7,8 @@ bash "configure_xdebug" do
   code <<-EOH
 echo 'xdebug.remote_enable=1
 xdebug.remote_connect_back=1
-xdebug.idekey=PHPSTORM' >> xdebug.ini
+xdebug.idekey=PHPSTORM
+xdebug.max_nesting_level=-1' >> xdebug.ini
   EOH
   action :nothing
 end
