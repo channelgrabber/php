@@ -22,17 +22,15 @@ def el5_range
   (0..99).to_a.map{|i| "5.#{i}"}
 end
 
-def enable_pear_mod (module_name)
-  config_file = File.join(node['php']['ext_conf_dir'], "#{module_name}.ini")
+def enable_php_module(name)
+  execute "enable_php_module" do
+    command "php5enmod #{name}"
+  end
+end
 
-  bash "enable_pear_mod" do
-    user "root"
-    cwd node['php']['ext_conf_dir']
-    code <<-EOH
-      ln -s #{config_file} /etc/php5/mods-available
-      php5enmod #{module_name}
-    EOH
-    only_if {File.exists?(config_file)}
+def disable_php_module(name)
+  execute "disable_php_module" do
+    command "php5dismod #{name}"
   end
 end
 
