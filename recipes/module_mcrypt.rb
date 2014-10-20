@@ -1,5 +1,7 @@
-pkg = "php5-mcrypt"
+module = "mcrypt"
 
-package pkg do
+package "php5-#{module}" do
   action :install
 end
+
+enable_pear_mod(module)
