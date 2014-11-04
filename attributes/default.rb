@@ -22,6 +22,7 @@ lib_dir = 'lib'
 default['php']['install_method'] = 'package'
 default['php']['directives'] = {}
 default['php']['memcached']['version'] = '2.1.0*'
+default['php']['mysql']['mysqlnd'] = true
 
 case node["platform"]
 when "debian"

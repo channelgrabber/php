@@ -27,6 +27,24 @@ pkg = value_for_platform(
   "default" => "php5-mysql"
 )
 
-package pkg do
-  action :install
+nd_pkg = value_for_platform(
+  "default" => "php5-mysqlnd"
+)
+
+if node['php']['mysql']['mysqlnd']
+  package pkg do
+    action :remove
+  end
+
+  package nd_pkg do
+    action :install
+  end
+else
+  package nd_pkg do
+    action :remove
+  end
+
+  package pkg do
+    action :install
+  end
 end
