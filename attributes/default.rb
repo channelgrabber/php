@@ -19,7 +19,7 @@
 #
 
 lib_dir = 'lib'
-default['php']['install_method'] = 'package'
+default['php']['install_method'] = 'source'
 default['php']['directives'] = {}
 default['php']['memcached']['version'] = '2.1.0*'
 default['php']['mysql']['mysqlnd'] = true
@@ -79,8 +79,8 @@ else
 end
 
 default['php']['url'] = 'http://us.php.net/distributions'
-default['php']['version'] = '5.4.15'
-default['php']['checksum'] = '94e92973c996cf8deabafe0ba19b23d48a79d6e64592a5bf4ea63036eec77c3c'
+default['php']['version'] = '5.5.1'
+default['php']['checksum'] = 'e6520ba8f86e03451f1e9226ca2be681'
 default['php']['prefix_dir'] = '/usr/local'
 
 default['php']['configure_options'] = %W{--prefix=#{php['prefix_dir']}
