@@ -29,7 +29,6 @@ def enable_pear_mod (module_name)
     user "root"
     cwd node['php']['ext_conf_dir']
     code <<-EOH
-      ln -s #{config_file} #{node['php']['ext_conf_dir']}
       php5enmod #{module_name}
     EOH
     only_if {File.exists?(config_file)}
@@ -41,10 +40,9 @@ def disable_pear_mod (module_name)
 
   bash "disable_pear_mod" do
     user "root"
-    cwd #{node['php']['ext_conf_dir']}
+    cwd node['php']['ext_conf_dir']
     code <<-EOH
       php5dismod #{module_name}
-      rm #{config_file}
     EOH
     only_if {File.exists?(config_file)}
   end
