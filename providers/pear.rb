@@ -158,7 +158,7 @@ def remove_package(name, version)
   command = "#{@bin} uninstall #{expand_options(@new_resource.options)} #{prefix_channel(can_haz(@new_resource, "channel"))}#{name}"
   command << "-#{version}" if version and !version.empty?
   pear_shell_out(command)
-  manage_pecl_ini(name, :delete) if pecl?
+  manage_pecl_ini(name, :delete, can_haz(@new_resource, "directives"), can_haz(@new_resource, "zend_extensions")) if pecl?
 end
 
 def pear_shell_out(command)
