@@ -36,7 +36,7 @@ def enable_pear_mod (module_name)
 end
 
 def disable_pear_mod (module_name)
-  config_file = "#{module_name}.ini"
+  config_file = File.join(node['php']['ext_conf_dir'], "#{module_name}.ini")
 
   bash "disable_pear_mod" do
     user "root"
