@@ -19,7 +19,8 @@
 #
 node['php']['packages'].each do |pkg|
   package pkg do
-    action :install
+    options "-y"
+    action :upgrade
   end
 end
 
