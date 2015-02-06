@@ -18,9 +18,7 @@
 # limitations under the License.
 #
 
-package "php5" do
-  action :upgrade
-end
+Chef::Log.info(">>>> Packages #{node['php']['packages']}")
 
 node['php']['packages'].each do |pkg|
   package pkg do
