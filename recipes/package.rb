@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-package "php" do
+package "php5" do
   action :upgrade
 end
 

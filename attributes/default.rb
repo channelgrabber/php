@@ -19,6 +19,7 @@
 #
 
 lib_dir = 'lib'
+default['php']['version'] = '5.5.21'
 default['php']['install_method'] = 'package'
 default['php']['directives'] = {}
 default['php']['memcached']['version'] = '2.2.0*'
