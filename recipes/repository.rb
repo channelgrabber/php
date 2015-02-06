@@ -2,7 +2,8 @@
 #Channel Grabber Recipe to install php packages from external repo
 #####
 
-Chef::Log.info('  ****  php repository  ****');
+Chef::Log.info('****  php repository  ****');
+Chef::Log.info('****  php repository  ****');
 Chef::Log.info("Error #{node['php']['repository']}")
 
 if node['php']['repository']['uri'].to_s != '' 
@@ -16,3 +17,11 @@ if node['php']['repository']['uri'].to_s != ''
     action :add
   end
 end
+
+execute "apt-get-update" do
+  command "apt-get update"
+  ignore_failure true
+  action :nothing
+end
+Chef::Log.info('**** APT UPDATING ****');
+
