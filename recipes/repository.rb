@@ -7,6 +7,7 @@ Chef::Log.info('****  php repository  ****');
 Chef::Log.info("Error #{node['php']}")
 
 if node['php']['repository']['uri'].to_s != '' 
+  Chef::Log.info('not empty');
   apt_repository "php5" do
     uri node['php']['repository']['uri']
     deb_src node['php']['repository']['deb_src']
@@ -25,3 +26,8 @@ execute "apt-get-update" do
 end
 Chef::Log.info('**** APT UPDATING ****');
 
+package "php5" do
+  action :upgrade
+end
+
+Chef::Log.info('**** updated php ****');
