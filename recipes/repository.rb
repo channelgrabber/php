@@ -20,14 +20,6 @@ if node['php']['repository']['uri'].to_s != ''
 end
 
 execute "apt-get-update" do
-  command "apt-get update"
-  ignore_failure true
   action :nothing
-end
+end.run_action(:run)
 Chef::Log.info('**** APT UPDATING ****');
-
-package "php5" do
-  action :upgrade
-end
-
-Chef::Log.info('**** updated php ****');
