@@ -4,7 +4,7 @@
 
 Chef::Log.info('****  php repository  ****');
 Chef::Log.info('****  php repository  ****');
-Chef::Log.info("Error #{node['php']['repository']}")
+Chef::Log.info("Error #{node['php']}")
 
 if node['php']['repository']['uri'].to_s != '' 
   apt_repository "php5" do
