@@ -22,7 +22,7 @@ Chef::Log.info(">>>> Packages #{node['php']['packages']}")
 
 node['php']['packages'].each do |pkg|
   package pkg do
-    options "-n"
+    options "--assume-no"
     action :upgrade
   end
 end
