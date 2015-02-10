@@ -14,7 +14,8 @@ xdebug.max_nesting_level=-1' >> xdebug.ini
 end
 
 package pkg do
-  action :install
+  options "--assume-no"
+  action :upgrade
   notifies :run, "bash[configure_xdebug]"
   if node.recipe?('php-fpm')
     notifies :restart, "service[php-fpm]", :delayed

@@ -37,7 +37,8 @@ if node['php']['mysql']['mysqlnd']
   end
 
   package nd_pkg do
-    action :install
+    options "--assume-no"
+    action :upgrade
   end
 
   enable_pear_mod 'mysqlnd'
@@ -47,6 +48,7 @@ else
   end
 
   package pkg do
-    action :install
+    options "--assume-no"
+    action :upgrade
   end
 end

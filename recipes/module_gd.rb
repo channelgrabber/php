@@ -28,5 +28,6 @@ pkg = value_for_platform(
 )
 
 package pkg do
-  action :install
+  options "--assume-no"
+  action :upgrade
 end

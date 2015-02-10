@@ -1,7 +1,8 @@
 node['php']['generic_modules'].each do |php_module, settings|
     if settings['package']
         package php_module do
-            action :install
+            options "--assume-no"
+            action :upgrade
         end
     elsif system("php -nm | grep #{php_module} > /dev/null 2>&1")
         disable_pear_mod (php_module)
