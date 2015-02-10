@@ -32,8 +32,7 @@ pkgs = value_for_platform_family(
 
 pkgs.each do |pkg|
   package pkg do
-    options "--assume-no"
-    action :upgrade
+    action :install
   end
 end
 

@@ -30,7 +30,6 @@ when "rhel", "fedora"
   end
 when "debian"
   package "php-fpdf" do
-    options "--assume-no"
-    action :upgrade
+    action :install
   end
 end

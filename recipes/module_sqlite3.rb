@@ -24,8 +24,7 @@ when "rhel", "fedora"
   #already there in centos, --with-pdo-sqlite=shared
 when "debian"
   package "php5-sqlite" do
-    options "--assume-no"
-    action :upgrade
+    action :install
   end
 end
 
