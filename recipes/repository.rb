@@ -2,12 +2,7 @@
 #Channel Grabber Recipe to install php packages from external repo
 #####
 
-Chef::Log.info('****  php repository  ****');
-Chef::Log.info('****  php repository  ****');
-Chef::Log.info("Error #{node['php']}")
-
-if node['php']['repository']['uri'].to_s != '' 
-  Chef::Log.info('not empty');
+if node['php']['repository']['uri'].to_s != ''
   apt_repository "php5" do
     uri node['php']['repository']['uri']
     deb_src node['php']['repository']['deb_src']
@@ -22,4 +17,3 @@ end
 execute "apt-get-update" do
   action :nothing
 end.run_action(:run)
-Chef::Log.info('**** APT UPDATING ****');

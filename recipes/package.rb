@@ -17,9 +17,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-Chef::Log.info(">>>> Packages #{node['php']['packages']}")
-
 node['php']['packages'].each do |pkg|
   package pkg do
     options "--assume-no"
