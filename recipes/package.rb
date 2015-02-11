@@ -19,7 +19,6 @@
 #
 node['php']['packages'].each do |pkg|
   package pkg do
-    options "-o Dpkg::Options::=\"--force-confdef\" -o Dpkg::Options::=\"--force-confold\""
     action :upgrade
   end
 end
