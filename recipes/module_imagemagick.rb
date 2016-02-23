@@ -1,7 +1,5 @@
-pear_module = "imagick"
+pkg = "php5-imagick"
 
-php_pear pear_module do
+package pkg do
   action :install
 end
-
-enable_pear_mod (pear_module)
